@@ -1,0 +1,23 @@
+[
+    {
+        "firstName":"Evelyn",
+        "lastName":"Moraes",
+        "email":"evelyn@test.com",
+        "favoriteColor":"Purple",
+        "birthday":"28/02/2000"
+    },
+    {
+        "firstName":"Alice",
+        "lastName":"Barbosa",
+        "email":"alice@test.com",
+        "favoriteColor":"Pink",
+        "birthday":"04/04/2017"
+    },
+    {
+        "firstName":"Benjamin",
+        "lastName":"Moraes",
+        "email":"benjamin@test.com",
+        "favoriteColor":"Blue",
+        "birthday":"22/10/2020"
+    }
+]
