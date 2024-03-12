@@ -2,16 +2,15 @@ import { ObjectId } from "mongodb";
 import { getDb } from "../db/connect.js";
 
 const getContactById = async (req, res, next) => {
-    if (!req.query.id) {
+    if (!req.params.id) {
       res.setHeader("Content-Type", "application/json");
       return res.status(400).json({ error: "missing id query parameter" });
     }
-  
     try {
       const result = await getDb()
         .db()
         .collection("contacts")
-        .findOne({ _id: new ObjectId(req.query.id) });
+        .findOne({ _id: new ObjectId(req.params.id) });
   
       if (!result) {
         res.setHeader("Content-Type", "application/json");
