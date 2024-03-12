@@ -4,6 +4,8 @@ import { getContactById } from "../controllers/getContactById.js";
 import { newContact } from "../controllers/newContact.js";
 import { updateContact } from "../controllers/updateContact.js";
 import { deleteContact } from "../controllers/deleteContact.js";
+import { readFileSync } from "fs";
+import swaggerUi from "swagger-ui-express";
 
 const routes = Router();
 
@@ -12,6 +14,11 @@ routes.use((req, res, next) => {
 
   next();
 });
+
+const rawSwaggerDocument = readFileSync("./api-docs.json");
+const swaggerDocument = JSON.parse(rawSwaggerDocument);
+routes.use("/api-docs", swaggerUi.serve);
+routes.get("/api-docs", swaggerUi.setup(swaggerDocument));
 
 routes.get("/", (req, res) => {
   res.send("Contacts web services is running!");
